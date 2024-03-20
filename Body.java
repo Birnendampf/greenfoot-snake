@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Body extends Actor
+public class Body extends Actor implements Colliding
 {
     // TODO: Replace these with proper assets once we have decided on a resolution
     // FIXME: Should these be seperate Actors? 
