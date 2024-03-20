@@ -15,7 +15,6 @@ public abstract class Button extends Actor
      */
     public void act()
     {
-        System.out.println("Button");
         if (!wasPressed && Greenfoot.mousePressed(this)) {
             changePressedState(true);
             wasPressed = true;

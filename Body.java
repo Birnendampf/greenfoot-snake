@@ -21,17 +21,18 @@ public class Body extends Actor
     // FIXME: Find a better name for this variable
     private int age = 0;
     private Head head;
-    /**
-     * Act - do whatever the Body wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     public Body(GreenfootImage state, Head head) {
         this.head = head;
         setImage(state);
     }
+
+    /**
+     * Act - do whatever the Body wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
     public void act()
     {
-        System.out.println("Body: " + age);
         age++;
         if (age >= head.getLength()) {
             getWorld().removeObject(this);

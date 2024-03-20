@@ -21,7 +21,6 @@ public class Head extends Actor
      */
     public void act()
     {
-        System.out.println("Head");
         processMove();
         // TODO: process collision
         // TODO: process eating
@@ -50,10 +49,10 @@ public class Head extends Actor
             body = new Body(Body.STRAIGHT, this);
 
         } else if ((oldDirection + 90) % 360 == newDirection) {
-            System.out.println("right " + oldDirection + " " + newDirection);
+            // turned right
             body = new Body(Body.RIGHT, this);
         } else {
-            System.out.println("left");
+            // turned left
             body = new Body(Body.LEFT, this);
         }
         setRotation(newDirection);

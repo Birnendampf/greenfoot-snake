@@ -15,7 +15,6 @@ public class MyWorld extends World
      */
     public MyWorld(int width, int height)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(width, height + 1, 60); 
         score = new Score();
         prepare();
@@ -23,10 +22,6 @@ public class MyWorld extends World
 
     public MyWorld() {
         this(7, 7);
-    }
-
-    public void act() {
-        System.out.println("1");
     }
 
     /**
