@@ -22,7 +22,6 @@ public class Head extends Actor
     public void act()
     {
         processMove();
-        // TODO: process collision
         if (colliding()) {
             getWorldOfType(MyWorld.class).gameOver();
         }
