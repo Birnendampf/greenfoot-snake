@@ -17,6 +17,7 @@ public class MyWorld extends World
     {    
         super(width, height + 1, 60); 
         score = new Score();
+        setActOrder(Button.class, Body.class, Head.class);
         prepare();
     }
 
@@ -41,5 +42,12 @@ public class MyWorld extends World
 
     public Score getScore() {
         return this.score;
+    }
+
+    public void gameOver() {
+        Greenfoot.stop();
+        int width = getWidth();
+        int height = getHeight() - 1;
+        Greenfoot.setWorld(new MyWorld(width, height));
     }
 }
