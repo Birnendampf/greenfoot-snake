@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TopBar extends Actor
+public class TopBar extends Actor implements Colliding
 {
     protected void addedToWorld(World world) {
         int cellSize = world.getCellSize();

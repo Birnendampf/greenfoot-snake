@@ -14,7 +14,7 @@ public class Head extends Actor
     private final int WEST = 180;
     // the score and length are purposefully kept seperate because a) the initial length should not be counted to the score and b) it allows for different fruit types that might yield different
     // score and growth amounts
-    private int length = 3;
+    private int length = 5;
     /**
      * Act - do whatever the Head wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -22,7 +22,9 @@ public class Head extends Actor
     public void act()
     {
         processMove();
-        // TODO: process collision
+        if (colliding()) {
+            getWorldOfType(MyWorld.class).gameOver();
+        }
         eatFruit();
     }
 
@@ -59,6 +61,10 @@ public class Head extends Actor
         body.setRotation(newDirection);
         getWorld().addObject(body, getX(), getY());
         move(1);
+    }
+    
+    public boolean colliding() {
+        return getOneObjectAtOffset(0, 0, Colliding.class) != null;
     }
 
     public int getLength() {
