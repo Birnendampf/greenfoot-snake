@@ -1,4 +1,5 @@
 #Greenfoot project file
+class.Apple.image=apple1.png
 class.Head.image=snake2.png
 class.MyButton.image=button-blue.png
 class.MyWorld.image=cell.jpg
