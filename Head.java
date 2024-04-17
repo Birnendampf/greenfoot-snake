@@ -23,7 +23,7 @@ public class Head extends Actor
     {
         processMove();
         // TODO: process collision
-        // TODO: process eating
+        eatFruit();
     }
 
     private void processMove() {
@@ -63,5 +63,13 @@ public class Head extends Actor
 
     public int getLength() {
         return this.length;
+    }
+    
+    public void eatFruit() {
+        Fruit fruit = (Fruit) getOneObjectAtOffset(0, 0, Fruit.class);
+        if (fruit == null) return;
+        this.length += fruit.getValue();
+        getWorld().removeObject(fruit);
+        getWorldOfType(MyWorld.class).addFruit();
     }
 }
