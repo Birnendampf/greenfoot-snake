@@ -37,9 +37,14 @@ public class MyWorld extends World
         MyButton myButton = new MyButton();
         addObject(myButton,getWidth() - 1,0);
         addObject(new Head(), getWidth() / 2, getHeight() / 2);
+        addFruit();
     }
 
     public Score getScore() {
         return this.score;
+    }
+    
+    public void addFruit() {
+        addObject(new Apple(), 0, 0);
     }
 }

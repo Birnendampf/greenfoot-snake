@@ -11,6 +11,7 @@ public class Apple extends Fruit
     public int getValue() {
         return 1;
     }
+
     public int getScore() {
         return 1;
     }
