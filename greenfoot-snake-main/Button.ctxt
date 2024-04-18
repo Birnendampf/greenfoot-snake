@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Button
+comment0.text=\r\n\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Button\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=boolean\ hovering()
+comment2.text=\r\n\ Currently\ unused.\ this\ can\ check\ if\ the\ mouse\ is\ hovering\ over\ a\ button,\ but\ might\ impact\ performance\ if\ called\ every\ tick\r\n
+comment3.params=
+comment3.target=void\ onClicked()
+comment4.params=pressed
+comment4.target=void\ changePressedState(boolean)
+comment4.text=\r\n\ Default\ implementation\ does\ nothing.\ Can\ be\ used\ by\ subclasses\ to\ add\ fancy\ animations\r\n
+numComments=5
