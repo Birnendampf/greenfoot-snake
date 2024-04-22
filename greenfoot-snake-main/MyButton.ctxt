@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=MyButton
-comment0.text=\r\n\ \ This\ can\ be\ a\ pause\ button\ at\ some\ point\ if\ we\ want\ to\ bother\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ onClicked()
-comment2.params=pressed
-comment2.target=void\ changePressedState(boolean)
-numComments=3

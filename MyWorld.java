@@ -17,7 +17,7 @@ public class MyWorld extends World
     {    
         super(width, height + 1, 60); 
         score = new Score();
-        setActOrder(Button.class, Body.class, Head.class);
+        setActOrder(Button.class, Body.class, Head.class, Trail.class);
         prepare();
     }
 
@@ -34,6 +34,8 @@ public class MyWorld extends World
         for (int i = 0; i < getWidth(); i++) {
             addObject(new TopBar(), i, 0);
         }
+        GreenfootImage grass = new GreenfootImage("grass.jpeg");
+        setBackground(grass);
         addObject(score,0, 0);
         MyButton myButton = new MyButton();
         addObject(myButton,getWidth() - 1,0);
@@ -50,6 +52,8 @@ public class MyWorld extends World
     }
 
     public void gameOver() {
+        GreenfootSound over = new GreenfootSound("gameover.wav");
+        over.play();
         Greenfoot.stop();
         int width = getWidth();
         int height = getHeight() - 1;
