@@ -72,10 +72,10 @@ public class Head extends Actor
     }
     
     public void eatFruit() {
-        Fruit fruit = (Fruit) getOneObjectAtOffset(0, 0, Fruit.class);
-        if (fruit == null) return;
-        this.length += fruit.getValue();
-        getWorld().removeObject(fruit);
+        Collectible collectible = (Collectible) getOneObjectAtOffset(0, 0, Collectible.class);
+        if (collectible == null) return;
+        this.length += collectible.getValue();
+        getWorld().removeObject(collectible);
         getWorldOfType(MyWorld.class).addFruit();
     }
 }

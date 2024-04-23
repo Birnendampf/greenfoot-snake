@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Fruit here.
+ * Write a description of class Collectible here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public abstract class Fruit extends Actor
+public abstract class Collectible extends Actor
 {
     public abstract int getValue();
 

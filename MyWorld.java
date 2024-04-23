@@ -49,6 +49,7 @@ public class MyWorld extends World
     
     public void addFruit() {
         addObject(new Apple(), 0, 0);
+        addObject(new Star(), 0, 0);
     }
 
     public void gameOver() {

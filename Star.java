@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Apple extends Fruit
+public class Star extends Collectible
 {
     public int getValue() {
         return 1;
