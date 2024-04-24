@@ -14,11 +14,11 @@ public class Body extends Actor implements Colliding
     //        cons: the last body element would need to "swap itself out" for a tail. That would mean deleting and creating objects and copying over all transforms which might be slow.
     //              might also not be worth the effort; it would require an abstract Body class
     //        possible solution: use a hybrid approach. we only have three seperate body classes, and swap out the icon when zhe body is a tail
-    public static final GreenfootImage STRAIGHT = new GreenfootImage("═", 60, null, null);
-    public static final GreenfootImage LEFT = new GreenfootImage("╚", 60, null, null);
-    public static final GreenfootImage RIGHT = new GreenfootImage("╔", 60, null, null);
-    public static final GreenfootImage TAIL = new GreenfootImage("╼", 60, null, null);
-    // FIXME: Find a better name for this variable
+    public static final GreenfootImage LEFT = new GreenfootImage("left.png");
+    public static final GreenfootImage RIGHT = new GreenfootImage("right2.png");
+    public static final GreenfootImage FRONT = new GreenfootImage("front.png");
+    public static final GreenfootImage BACK = new GreenfootImage("back.png");
+    
     private int age = 0;
     private Head head;
 
@@ -33,12 +33,12 @@ public class Body extends Actor implements Colliding
      */
     public void act()
     {
+        getWorld().addObject(new Trail(), getX(), getY());
         age++;
         if (age >= head.getLength()) {
             getWorld().removeObject(this);
-        } else if (age + 1 == head.getLength()) {
-            setImage(TAIL);
-        }
+        } 
+        
     }
 
 }

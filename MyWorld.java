@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     private Score score;
+    private GreenfootSound backsd = new GreenfootSound("back.wav");
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -31,6 +32,11 @@ public class MyWorld extends World
      */
     private void prepare()
     {
+        backsd.setVolume(50);
+        backsd.playLoop();
+        GreenfootImage back = new GreenfootImage(getWidth(), getHeight());
+        back.setColor(new Color(100,50,70));
+        back.fill();
         for (int i = 0; i < getWidth(); i++) {
             addObject(new TopBar(), i, 0);
         }
@@ -48,12 +54,11 @@ public class MyWorld extends World
     }
     
     public void addFruit() {
-        addObject(new Star(), 0, 0);
+        addObject(new Apple(), 0, 0);
     }
 
     public void gameOver() {
-        GreenfootSound over = new GreenfootSound("gameover.wav");
-        over.play();
+        backsd.stop();
         Greenfoot.stop();
         int width = getWidth();
         int height = getHeight() - 1;

@@ -23,6 +23,8 @@ public class Head extends Actor
     {
         processMove();
         if (colliding()) {
+            GreenfootSound colliding = new GreenfootSound("colliding.wav");
+            colliding.play();
             getWorldOfType(MyWorld.class).gameOver();
         }
         eatFruit();
@@ -46,19 +48,18 @@ public class Head extends Actor
             newDirection = oldDirection;
         }
         Body body;
-        if (newDirection == oldDirection) {
-            // direction has not changed
-            body = new Body(Body.STRAIGHT, this);
+        if (newDirection == NORTH) {
+            body = new Body(Body.BACK, this);
 
-        } else if ((oldDirection + 90) % 360 == newDirection) {
-            // turned right
+        } else if (newDirection == EAST) {
             body = new Body(Body.RIGHT, this);
-        } else {
-            // turned left
+        } else if(newDirection == WEST){
             body = new Body(Body.LEFT, this);
         }
+        else{
+            body = new Body(Body.FRONT, this);
+        }
         setRotation(newDirection);
-        body.setRotation(newDirection);
         getWorld().addObject(body, getX(), getY());
         move(1);
     }
@@ -72,10 +73,12 @@ public class Head extends Actor
     }
     
     public void eatFruit() {
-        Collectible collectible = (Collectible) getOneObjectAtOffset(0, 0, Collectible.class);
-        if (collectible == null) return;
-        this.length += collectible.getValue();
-        getWorld().removeObject(collectible);
+        Fruit fruit = (Fruit) getOneObjectAtOffset(0, 0, Fruit.class);
+        if (fruit == null) return;
+        GreenfootSound eating = new GreenfootSound("eating.wav");
+        eating.play();
+        this.length += fruit.getValue();
+        getWorld().removeObject(fruit);
         getWorldOfType(MyWorld.class).addFruit();
     }
 }
