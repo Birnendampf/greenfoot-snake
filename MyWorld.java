@@ -18,7 +18,8 @@ public class MyWorld extends World
     {    
         super(width, height + 1, 60); 
         score = new Score();
-        setActOrder(Button.class, Body.class, Head.class, Trail.class);
+        setActOrder(Button.class, Body.class, Head.class);
+        setPaintOrder(Head.class, Body.class, Trail.class);
         prepare();
     }
 
@@ -32,8 +33,6 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        backsd.setVolume(50);
-        backsd.playLoop();
         GreenfootImage back = new GreenfootImage(getWidth(), getHeight());
         back.setColor(new Color(100,50,70));
         back.fill();
@@ -42,19 +41,28 @@ public class MyWorld extends World
         }
         GreenfootImage grass = new GreenfootImage("grass.jpeg");
         setBackground(grass);
-        addObject(score,0, 0);
+        addObject(score,1, 0);
         MyButton myButton = new MyButton();
-        addObject(myButton,getWidth() - 1,0);
+        //addObject(myButton,getWidth() - 1,0);
         addObject(new Head(), getWidth() / 2, getHeight() / 2);
-        addFruit();
+        addCollectible();
+    }
+
+    public void started() {
+        backsd.setVolume(25);
+        backsd.playLoop();
+    }
+
+    public void stopped() {
+        backsd.stop();
     }
 
     public Score getScore() {
         return this.score;
     }
-    
-    public void addFruit() {
-        addObject(new Apple(), 0, 0);
+
+    public void addCollectible() {
+        addObject(new Star(), 0, 0);
     }
 
     public void gameOver() {

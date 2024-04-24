@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyButton extends Button
 {
     protected void onClicked() {
-        System.out.println("clicked!");
+        Greenfoot.stop();
     }
 
     protected void changePressedState(boolean pressed) {

@@ -12,9 +12,7 @@ public class Head extends Actor
     private final int EAST = 0;
     private final int SOUTH = 90;
     private final int WEST = 180;
-    // the score and length are purposefully kept seperate because a) the initial length should not be counted to the score and b) it allows for different fruit types that might yield different
-    // score and growth amounts
-    private int length = 5;
+    private int length = 3;
     /**
      * Act - do whatever the Head wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -27,7 +25,7 @@ public class Head extends Actor
             colliding.play();
             getWorldOfType(MyWorld.class).gameOver();
         }
-        eatFruit();
+        eatCollectible();
     }
 
     private void processMove() {
@@ -72,13 +70,15 @@ public class Head extends Actor
         return this.length;
     }
     
-    public void eatFruit() {
-        Fruit fruit = (Fruit) getOneObjectAtOffset(0, 0, Fruit.class);
-        if (fruit == null) return;
+    public void eatCollectible() {
+        Star star = (Star) getOneObjectAtOffset(0, 0, Star.class);
+        if (star == null) return;
         GreenfootSound eating = new GreenfootSound("eating.wav");
         eating.play();
-        this.length += fruit.getValue();
-        getWorld().removeObject(fruit);
-        getWorldOfType(MyWorld.class).addFruit();
+        this.length += star.getValue();
+        MyWorld world = getWorldOfType(MyWorld.class);
+        world.removeObject(star);
+        world.addCollectible();
+        world.getScore().addToScore(star.getScore());
     }
 }
